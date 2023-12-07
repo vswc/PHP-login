@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
     include_once($_SERVER["DOCUMENT_ROOT"] . "/walkies/src/classes/Database.php");
     include_once($_SERVER['DOCUMENT_ROOT'] . "/walkies/src/classes/User.php");
 

@@ -25,7 +25,8 @@ class User extends Database {
     }
 
     public function Login($username, $password) {
-        $stmt = $this->conn->prepare(
+        $conn = $this->connect();
+        $stmt = $conn->prepare(
             "SELECT * FROM users 
             WHERE username = ?"
         );
@@ -35,6 +36,11 @@ class User extends Database {
         $user = $result->fetch_assoc();
 
         if ($user && password_verify($password, $user['password'])) {
+            $_SESSION['user'] = [
+                'username'=> $user['username'],
+                'firstname'=> $user['fname'],
+                'lastname'=> $user['lname'],
+            ];
             return $user;
         } else {
             return null;
