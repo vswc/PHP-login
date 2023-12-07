@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input {
+    @apply m-2 p-2 outline-none border border-blue-600;
+}
